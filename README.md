@@ -21,6 +21,7 @@ console.log(wallet.currency()) => '$100,00'
 ## API
 
 **constructor(value, locale, currency)**
+
 Create a new Wallet object with the initial value.
   - *{number}* **value** - The value to put on wallet
   - *{number}* [**locale**=en] - The locale for this wallet
@@ -32,6 +33,7 @@ const amount = new Wallet(100)
 ```
 
 **static init(value, [ locale, currency ])** -> Wallet
+
 Create a new Wallet object with the initial value.
   - *{number}* **value** - A value to put on wallet
   - *{number}* [**locale**=en] - The locale for this wallet
@@ -43,6 +45,7 @@ const amount = Wallet.init(100)
 ```
 
 **static fromString(value, [ locale, currency ])** -> Wallet
+
 Create a new Wallet object from String value
   - *{string}* **value** - A value to put on wallet
   - *{number}* [**locale**=en] - The locale for this wallet
@@ -54,6 +57,7 @@ const amount = Wallet.fromString(100)
 ```
 
 **toCurrency([currencyDisplay, { currency }])** -> String
+
 Return a formatted currency of Wallet
   - *{number}* [**currencyDisplay**=symbol] - How to display the currency in currency formatting.
   - *{number}* [**currency**=USD] - The currency to use in currency formatting.
@@ -65,6 +69,7 @@ amount.toCurrency() // => $100.00
 ```
 
 **toString()** -> String
+
 Return a formatted value of Wallet
 
 ```javascript
