@@ -67,6 +67,18 @@ const amount = Wallet.fromString(100)
 const newAmount = amount.add(100)
 ```
 
+**subtract(value)** -> Wallet
+
+Subtract a value to wallet
+  - *{string}* **value** - A value to remove from wallet
+
+```javascript
+import Wallet from 'walletjs'
+const amount = Wallet.fromString(100)
+const newAmount = amount.subtract(100)
+```
+
+
 **toCurrency([currencyDisplay, { currency }])** -> String
 
 Return a formatted currency of Wallet

@@ -19,6 +19,8 @@ const DEFAULT_OPTIONS = { minimumFractionDigits: 2, maximumFractionDigits: 2 }
 
 const sum = (newValue, oldValue) => newValue + denormalize(oldValue)
 
+const subtract = (newValue, oldValue) => denormalize(oldValue) - newValue
+
 /** Class representing a Wallet. */
 export default class Wallet {
 
@@ -65,6 +67,13 @@ export default class Wallet {
    * @return {Wallet} The wallet with new value
    */
   add = value => handleWallet(sum.bind(this, value), this)
+
+  /**
+   * Subtract a value to wallet
+   * @param {number} value - A value to remove from wallet
+   * @return {Wallet} The wallet with new value
+   */
+  subtract = value => handleWallet(subtract.bind(this, value), this)
 
   /**
   * Return a formatted currency of Wallet
