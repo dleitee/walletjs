@@ -1,13 +1,12 @@
 {
   "name": "walletjs",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Now you can handle money without headaches!",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest --coverage --expand --watch",
     "lint": "eslint .",
-    "prepublish": "babel src --out-dir lib",
-    "postpublish": "rm -rf lib"
+    "prepublish": "babel src --out-dir lib"
   },
   "browser": {
     "Intl": "./src/helpers/intil.js"
