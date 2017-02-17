@@ -7,6 +7,9 @@
     "test": "jest --coverage --expand --watch",
     "lint": "eslint ."
   },
+  "browser": {
+    "Intl": "./src/helpers/intil.js"
+  },
   "babel": {
     "presets": [
       "es2015",
@@ -77,5 +80,8 @@
     "eslint-plugin-no-lenght": "^1.0.1",
     "jest": "^18.1.0",
     "jest-babel": "^1.0.1"
+  },
+  "dependencies": {
+    "intl": "^1.2.5"
   }
 }
