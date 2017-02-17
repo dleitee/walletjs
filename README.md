@@ -42,6 +42,17 @@ import Wallet from 'walletjs'
 const amount = Wallet.init(100)
 ```
 
+**static fromString(value, [ locale, currency ])** -> Wallet
+Create a new Wallet object from String value
+  - *{string}* **value** - A value to put on wallet
+  - *{number}* [**locale**=en] - The locale for this wallet
+  - *{number}* [**currency**=USD] - The currency to use in currency formatting.
+
+```javascript
+import Wallet from 'walletjs'
+const amount = Wallet.fromString(100)
+```
+
 **toCurrency([currencyDisplay, { currency }])** -> String
 Return a formatted currency of Wallet
   - *{number}* [**currencyDisplay**=symbol] - How to display the currency in currency formatting.

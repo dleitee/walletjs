@@ -14,7 +14,7 @@ const DEFAULT_CURRENCY = CURRENCY_USD
 
 const DEFAULT_CURRENCY_DISPLAY = DISPLAY_SYMBOL
 
-const DEFAULT_OPTIONS = { minimumFractionDigits: 2 }
+const DEFAULT_OPTIONS = { minimumFractionDigits: 2, maximumFractionDigits: 2 }
 
 /** Class representing a Wallet. */
 export default class Wallet {
@@ -43,6 +43,18 @@ export default class Wallet {
   * @return {Wallet} The wallet with value
   */
   static init = (value = 0, { locale, currency } = {}) => new Wallet(value, locale, currency)
+
+  /**
+  * Create a new Wallet object from String value
+  * @param {string} string - A value to put on wallet
+  * @param {number} [locale=en] - The locale for this wallet
+  * @param {number} [currency=USD] - The currency to use in currency formatting.
+  * @return {Wallet} The wallet with value
+  */
+  static fromString = (string = '0', { locale, currency } = {}) => {
+    const value = Number.parseFloat(string)
+    return new Wallet(value, locale, currency)
+  }
 
   /**
   * Return a formatted currency of Wallet
