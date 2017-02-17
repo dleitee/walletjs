@@ -56,6 +56,17 @@ import Wallet from 'walletjs'
 const amount = Wallet.fromString(100)
 ```
 
+**add(value)** -> Wallet
+
+Adds a value to wallet
+  - *{string}* **value** - A value to put on wallet
+
+```javascript
+import Wallet from 'walletjs'
+const amount = Wallet.fromString(100)
+const newAmount = amount.add(100)
+```
+
 **toCurrency([currencyDisplay, { currency }])** -> String
 
 Return a formatted currency of Wallet

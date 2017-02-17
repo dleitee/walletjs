@@ -1,6 +1,7 @@
 import Intl from 'intl'
 
 import isNumber from './helpers/isnumber'
+import handleWallet from './helpers/handler'
 import { CURRENCY_USD } from './currency'
 import { DISPLAY_SYMBOL } from './display'
 
@@ -15,6 +16,8 @@ const DEFAULT_CURRENCY = CURRENCY_USD
 const DEFAULT_CURRENCY_DISPLAY = DISPLAY_SYMBOL
 
 const DEFAULT_OPTIONS = { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+
+const sum = (newValue, oldValue) => newValue + denormalize(oldValue)
 
 /** Class representing a Wallet. */
 export default class Wallet {
@@ -55,6 +58,13 @@ export default class Wallet {
     const value = Number.parseFloat(string)
     return new Wallet(value, locale, currency)
   }
+
+  /**
+   * Adds a value to wallet
+   * @param {number} value - A value to put on wallet
+   * @return {Wallet} The wallet with new value
+   */
+  add = value => handleWallet(sum.bind(this, value), this)
 
   /**
   * Return a formatted currency of Wallet
