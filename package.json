@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest --coverage --expand --watch",
-    "lint": "eslint .",
+    "lint": "eslint src tests",
     "prepublish": "babel src --out-dir lib",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
