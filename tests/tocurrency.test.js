@@ -14,5 +14,5 @@ test('should be returned a currency format', () => {
   expect(amount2.toCurrency(DISPLAY_NAME)).toBe('BRL1,000.00')
 
   const amount3 = Money.init(100)
-  expect(amount3.toCurrency(DISPLAY_SYMBOL, { currency: CURRENCY_BRL })).toBe('R$100.00')
+  expect(amount3.toCurrency(DISPLAY_SYMBOL)).toBe('$100.00')
 })

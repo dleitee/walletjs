@@ -13,11 +13,15 @@ npm install --save walletjs
 ## Usage
 
 ```javascript
-import { Money } from 'walletjs'
+import Wallet, { Money } from 'walletjs'
 
-const amounr = Money.init(100)
-console.log(amounr.toString()) => '100,00'
-console.log(amounr.toCurrency()) => '$100,00'
+const money = Money.init(100)
+const wallet = Wallet.init(money)
+console.log(wallet.getAmount(money.currency))
+
+const money2 = Money.init(100)
+const newWallet = wallet.add(money2)
+console.log(newWallet.getAmount(money2.currency))
 ```
 
 
