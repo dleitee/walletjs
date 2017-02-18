@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/dleitee/walletjs.svg?branch=master)](https://travis-ci.org/dleitee/walletjs)
 [![Coverage Status](https://coveralls.io/repos/github/dleitee/walletjs/badge.svg?branch=master)](https://coveralls.io/github/dleitee/walletjs?branch=master)
+[![Code Climate](https://codeclimate.com/github/dleitee/walletjs/badges/gpa.svg)](https://codeclimate.com/github/dleitee/walletjs)
 
 Now you can handle money without headaches!
 
