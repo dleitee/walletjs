@@ -1,7 +1,7 @@
 import Intl from 'intl'
 
 import { isNumber, getValue, isValidCurrencyFractionals } from './helpers/utils'
-import handleWallet from './helpers/handler'
+import handleMoney from './helpers/handler'
 import { normalize, denormalize } from './helpers/normalization'
 import { sum, subtract } from './helpers/operations'
 import { CURRENCY_USD } from './currency'
@@ -15,13 +15,13 @@ const DEFAULT_CURRENCY_DISPLAY = DISPLAY_SYMBOL
 
 const DEFAULT_CURRENCY_FRACTIONALS = 2
 
-/** Class representing a Wallet. */
-export default class Wallet {
+/** Class representing a Money. */
+export class Money {
 
   /**
-  * Create a new Wallet object with the initial value.
-  * @param {number} value - The value to put on wallet
-  * @param {number} [locale=en] - The locale for this wallet
+  * Create a new Money object with the initial value.
+  * @param {number} value - The value to put on money
+  * @param {number} [locale=en] - The locale for this money
   * @param {number} [currency=USD] - The currency to use in currency formatting.
   * @param {number} [currencyFractionals=2] - The currency fractionals to use in currency formatting
   */
@@ -42,52 +42,51 @@ export default class Wallet {
   }
 
   /**
-  * Create a new Wallet object with the initial value.
-  * @param {number} value - A value to put on wallet
-  * @param {number} [locale=en] - The locale for this wallet
+  * Create a new Money object with the initial value.
+  * @param {number} value - A value to put on money
+  * @param {number} [locale=en] - The locale for this money
   * @param {number} [currency=USD] - The currency to use in currency formatting.
   * @param {number} [currencyFractionals=2] - The currency fractionals to use in currency formatting
-  * @return {Wallet} The wallet with value
+  * @return {Money} The money with value
   */
-  static init = (value = 0, { ...options } = {}) => new Wallet(value, options)
+  static init = (value = 0, { ...options } = {}) => new Money(value, options)
 
   /**
-  * Create a new Wallet object from String value
-  * @param {string} string - A value to put on wallet
-  * @param {number} [locale=en] - The locale for this wallet
+  * Create a new Money object from String value
+  * @param {string} string - A value to put on money
+  * @param {number} [locale=en] - The locale for this money
   * @param {number} [currency=USD] - The currency to use in currency formatting.
-  * @return {Wallet} The wallet with value
+  * @return {Money} The money with value
   */
   static fromString = (string = '0', { ...options } = {}) => {
     const value = Number.parseFloat(string)
-    return new Wallet(value, options)
+    return new Money(value, options)
   }
 
   /**
-   * Adds a value to wallet
-   * @param {number} value - A value to put on wallet
-   * @return {Wallet} The wallet with new value
+   * Adds a value to money
+   * @param {number} value - A value to put on money
+   * @return {Money} The money with new value
    */
-  add = value => handleWallet(sum.bind(this, this.currencyFractionals, value), this)
+  add = value => handleMoney(sum.bind(this, this.currencyFractionals, value), this)
 
   /**
-   * Subtract a value to wallet
-   * @param {number} value - A value to remove from wallet
-   * @return {Wallet} The wallet with new value
+   * Subtract a value to money
+   * @param {number} value - A value to remove from money
+   * @return {Money} The money with new value
    */
-  subtract = value => handleWallet(subtract.bind(this, this.currencyFractionals, value), this)
+  subtract = value => handleMoney(subtract.bind(this, this.currencyFractionals, value), this)
 
   /**
-  * Return a formatted currency of Wallet
+  * Return a formatted currency of Money
   * @param {number} [currencyDisplay=symbol] - How to display the currency in currency formatting.
-  * @param {number} [currency=USD] - The currency to use in currency formatting.
-  * @return {string} currency number of wallet
+  * @return {string} currency number of money
   */
-  toCurrency = (currencyDisplay = DEFAULT_CURRENCY_DISPLAY, { currency } = {}) => {
+  toCurrency = (currencyDisplay = DEFAULT_CURRENCY_DISPLAY) => {
     const options = {
       ...this.DEFAULT_INTL_OPTIONS,
       style: 'currency',
-      currency: currency || this.currency,
+      currency: this.currency,
       currencyDisplay,
     }
     const intl = new Intl.NumberFormat(this.locale, options)
@@ -95,8 +94,8 @@ export default class Wallet {
   }
 
   /**
-  * Formatted value of Wallet
-  * @return {string} formatted number of wallet
+  * Formatted value of Money
+  * @return {string} formatted number of money
   */
   toString = () => {
     const intl = new Intl.NumberFormat(this.locale, this.DEFAULT_INTL_OPTIONS)
