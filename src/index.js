@@ -1,4 +1,5 @@
 import Money from './money'
+import Map from './helpers/map'
 
 /** Class representing a Wallet. */
 export default class Wallet {
