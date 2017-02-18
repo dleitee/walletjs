@@ -1,4 +1,4 @@
-import Wallet from '../'
+import { Money } from '../'
 
 export default (handler, wallet) =>
-  new Wallet(handler(wallet.value), wallet.locale, wallet.currency)
+  new Money(handler(wallet.value), wallet.locale, wallet.currency)
