@@ -46,6 +46,7 @@ export default class Wallet {
   * @param {number} value - A value to put on wallet
   * @param {number} [locale=en] - The locale for this wallet
   * @param {number} [currency=USD] - The currency to use in currency formatting.
+  * @param {number} [currencyFractionals=2] - The currency fractionals to use in currency formatting
   * @return {Wallet} The wallet with value
   */
   static init = (value = 0, { ...options } = {}) => new Wallet(value, options)
