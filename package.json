@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --coverage --expand --watch",
     "lint": "eslint .",
-    "prepublish": "babel src --out-dir lib"
+    "prepublish": "babel src --out-dir lib",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "browser": {
     "Intl": "./src/helpers/intil.js"
@@ -75,6 +76,7 @@
     "babel-eslint": "^7.1.1",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
+    "coveralls": "^2.11.16",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
