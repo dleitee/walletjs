@@ -4,7 +4,8 @@
   "description": "Now you can handle money without headaches!",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest --coverage --expand --watch",
+    "test": "jest --coverage --expand",
+    "test-watch": "jest --watch",
     "lint": "eslint src tests",
     "prepublish": "babel src --out-dir lib",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
