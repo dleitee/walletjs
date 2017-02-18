@@ -26,6 +26,7 @@ Create a new Wallet object with the initial value.
   - *{number}* **value** - The value to put on wallet
   - *{number}* [**locale**=en] - The locale for this wallet
   - *{number}* [**currency**=USD] - The currency to use in currency formatting.
+  - *{number}* [**currencyFractionals**=2] - The currency fractionals to use in currency formatting
 
 ```javascript
 import Wallet from 'walletjs'
@@ -38,6 +39,7 @@ Create a new Wallet object with the initial value.
   - *{number}* **value** - A value to put on wallet
   - *{number}* [**locale**=en] - The locale for this wallet
   - *{number}* [**currency**=USD] - The currency to use in currency formatting.
+  - *{number}* [**currencyFractionals**=2] - The currency fractionals to use in currency formatting
 
 ```javascript
 import Wallet from 'walletjs'
@@ -50,6 +52,7 @@ Create a new Wallet object from String value
   - *{string}* **value** - A value to put on wallet
   - *{number}* [**locale**=en] - The locale for this wallet
   - *{number}* [**currency**=USD] - The currency to use in currency formatting.
+  - *{number}* [**currencyFractionals**=2] - The currency fractionals to use in currency formatting
 
 ```javascript
 import Wallet from 'walletjs'
