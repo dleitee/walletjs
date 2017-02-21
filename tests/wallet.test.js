@@ -8,7 +8,7 @@ test('should be returned a Wallet object', () => {
 test('should be returned a Wallet object with Money', () => {
   const amount = Money.init(100)
   const wallet = Wallet.init(amount)
-  expect(wallet.getAmount(amount.currency)).toBe(100)
+  expect(wallet.getAmount(amount.currency)).toBe('100.00')
 })
 
 test('should be returned a Wallet object with multiple Money', () => {
@@ -16,7 +16,7 @@ test('should be returned a Wallet object with multiple Money', () => {
   const amount2 = Money.init(200)
   const amount3 = Money.init(300)
   const wallet = Wallet.init(amount1, amount2, amount3)
-  expect(wallet.getAmount(amount1.currency)).toBe(600)
+  expect(wallet.getAmount(amount1.currency)).toBe('600.00')
 })
 
 test('should be returned a Wallet object with multiple Money and two currencies', () => {
@@ -24,6 +24,6 @@ test('should be returned a Wallet object with multiple Money and two currencies'
   const amount2 = Money.init(200)
   const amount3 = Money.init(300)
   const wallet = Wallet.init(amount1, amount2, amount3)
-  expect(wallet.getAmount(amount1.currency)).toBe(100)
-  expect(wallet.getAmount(amount2.currency)).toBe(500)
+  expect(wallet.getAmount(amount1.currency)).toBe('100.00')
+  expect(wallet.getAmount(amount2.currency)).toBe('500.00')
 })

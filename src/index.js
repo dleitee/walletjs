@@ -48,6 +48,19 @@ export default class Wallet {
     const current = Money.init(this.getAmount(currency))
     return new Wallet(this.amount.set(currency, current.subtract(money).getValue()))
   }
+
+  /**
+   * Convert money with currency {from} in currency {true} using {exchangeRate}
+   * @param {currency} from
+   * @param {currency} to
+   * @param {number} exchangeRate
+   * @return {Wallet}
+   */
+  convertCurrency = (from, to, exchangeRate) => {
+    const fromAmount = Money.init(this.getAmount(from), { currency: from })
+    const converted = fromAmount.multiplyBy(exchangeRate).getValue()
+    return new Wallet(this.amount.set(from, 0).set(to, converted))
+  }
 }
 
 export { Money }

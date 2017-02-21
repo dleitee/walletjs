@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/dleitee/walletjs/badge.svg?branch=master)](https://coveralls.io/github/dleitee/walletjs?branch=master)
 [![Code Climate](https://codeclimate.com/github/dleitee/walletjs/badges/gpa.svg)](https://codeclimate.com/github/dleitee/walletjs)
 
-**IMPORTANT:** This library doesn't support huge numbers.
+**IMPORTANT:** We use [`big.js`](https://github.com/MikeMcl/big.js/) to handle huge numbers.
 
 Now you can handle money without headaches!
 
