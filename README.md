@@ -4,6 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/dleitee/walletjs/badge.svg?branch=master)](https://coveralls.io/github/dleitee/walletjs?branch=master)
 [![Code Climate](https://codeclimate.com/github/dleitee/walletjs/badges/gpa.svg)](https://codeclimate.com/github/dleitee/walletjs)
 
+**IMPORTANT:** This library doesn't support huge numbers.
+
 Now you can handle money without headaches!
 
 [API Reference](https://github.com/dleitee/walletjs/wiki/API-Reference)
@@ -12,9 +14,11 @@ Now you can handle money without headaches!
 
 ```
 npm install --save walletjs
+or
+yarn add walletjs
 ```
 
-## Usage
+## Examples
 
 ```javascript
 import Wallet, { Money } from 'walletjs'
@@ -26,6 +30,18 @@ console.log(wallet.getAmount(money.currency))
 const money2 = Money.init(100)
 const newWallet = wallet.add(money2)
 console.log(newWallet.getAmount(money2.currency))
+```
+
+## no problems with float errors
+```javascript
+// on javascript
+const a = 0.1
+const b = 0.2
+console.log(a + b) => 0.30000000000000004
+
+// on walletjs
+const money = Money.init(0.2)
+money.add(0.1) => returns 0.3
 ```
 
 
