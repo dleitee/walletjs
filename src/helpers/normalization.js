@@ -10,4 +10,5 @@ const fraction = (currencyFractionals) => {
 export const normalize = (currencyFractionals, value) =>
   Big(value).times(fraction(currencyFractionals))
 
-export const denormalize = (currencyFractionals, value) => value.div(fraction(currencyFractionals))
+export const denormalize = (currencyFractionals, value) =>
+  value.div(fraction(currencyFractionals)).toFixed(currencyFractionals)
