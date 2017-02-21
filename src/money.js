@@ -25,7 +25,9 @@ export default class Money {
   * @param {number} [currency=USD] - The currency to use in currency formatting.
   * @param {number} [currencyFractionals=2] - The currency fractionals to use in currency formatting
   */
-  constructor(value, { locale = DEFAULT_LOCALE, currency = DEFAULT_CURRENCY, ...options } = {}) {
+  constructor(value, {
+    locale = DEFAULT_LOCALE, currency = DEFAULT_CURRENCY, normalized = false, ...options
+  } = {}) {
     if (!isNumber(value)) {
       throw new Error('Value should be a number')
     }
@@ -36,7 +38,7 @@ export default class Money {
       minimumFractionDigits: this.currencyFractionals,
       maximumFractionDigits: this.currencyFractionals,
     }
-    this.value = normalize(this.currencyFractionals, value)
+    this.value = normalized ? value : normalize(this.currencyFractionals, value)
     this.locale = locale
     this.currency = currency
   }
