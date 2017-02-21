@@ -5,3 +5,5 @@ export const sum = (currencyFractionals, newValue, oldValue) =>
 
 export const subtract = (currencyFractionals, newValue, oldValue) =>
   oldValue - normalize(currencyFractionals, newValue)
+
+export const multiply = (currencyFractionals, factor, value) => value * factor

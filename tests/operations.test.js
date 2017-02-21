@@ -55,3 +55,24 @@ test('[subtract] should be returned a Money object with value = 0.1', () => {
   expect(amount.subtract(0.2).getValue()).toBe(10099.83)
   expect(amount.getValue()).toBe(initialValue)
 })
+
+test('[multiply] with real values', () => {
+  const initialValue = 2.02
+  const amount = Money.init(initialValue, { currencyFractionals: 2 })
+  expect(amount.multiplyBy(3.15).toString()).toBe('6.36')
+  expect(amount.getValue()).toBe(initialValue)
+})
+
+test('[multiply] with smallest values', () => {
+  const initialValue = 200.000000000002
+  const amount = Money.init(initialValue, { currencyFractionals: 12 })
+  expect(amount.multiplyBy(2).toString()).toBe('400.000000000004')
+  expect(amount.getValue()).toBe(initialValue)
+})
+
+test('[multiply] with biggest values', () => {
+  const initialValue = 9999999999999.99
+  const amount = Money.init(initialValue)
+  expect(amount.multiplyBy(10).toString()).toBe('99,999,999,999,999.90')
+  expect(amount.getValue()).toBe(initialValue)
+})

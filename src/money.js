@@ -3,7 +3,7 @@ import Intl from 'intl'
 import { isNumber, getValue, isValidCurrencyFractionals } from './helpers/utils'
 import handleMoney from './helpers/handler'
 import { normalize, denormalize } from './helpers/normalization'
-import { sum, subtract } from './helpers/operations'
+import { sum, subtract, multiply } from './helpers/operations'
 import { CURRENCY_USD } from './currency'
 import { DISPLAY_SYMBOL } from './display'
 
@@ -78,6 +78,13 @@ export default class Money {
    * @return {Money} The money with new value
    */
   subtract = value => handleMoney(subtract.bind(this, this.currencyFractionals, value), this)
+
+  /**
+   * Multiply your money by value
+   * @param {number} value - A value to multiply
+   * @return {Money} The money with new value
+   */
+  multiplyBy = value => handleMoney(multiply.bind(this, this.currencyFractionals, value), this)
 
   /**
    * Get current value
