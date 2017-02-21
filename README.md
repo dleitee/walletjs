@@ -32,6 +32,22 @@ const newWallet = wallet.add(money2)
 console.log(newWallet.getAmount(money2.currency))
 ```
 
+## convertCurrency
+
+```javascript
+import Wallet, { Money } from 'walletjs'
+
+const money = Money.init(100, { currency: 'BRL' } )
+const brlWallet = Wallet.init(money)
+const usdWallet = brlWallet.convertCurrency('BRL', 'USD', 3.09)
+
+console.log(brlWallet.getAmount('BRL')) => '100.00'
+console.log(brlWallet.getAmount('USD')) => '0.00'
+
+console.log(usdWallet.getAmount('BRL')) => '0.00'
+console.log(usdWallet.getAmount('USD')) => '309.00'
+```
+
 ## no problems with float errors
 ```javascript
 // on javascript
