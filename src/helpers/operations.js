@@ -1,7 +1,17 @@
-import { denormalize } from './normalization'
+import { normalize } from './normalization'
 
-export const sum = (currencyFractionals, newValue, oldValue) =>
-  newValue + denormalize(currencyFractionals, oldValue)
+export function sum(newValue) {
+  return normalize(this.currencyFractionals, newValue) + this.value
+}
 
-export const subtract = (currencyFractionals, newValue, oldValue) =>
-  denormalize(currencyFractionals, oldValue) - newValue
+export function subtract(newValue) {
+  return this.value - normalize(this.currencyFractionals, newValue)
+}
+
+export function multiply(factor) {
+  return this.value * factor
+}
+
+export function divide(factor) {
+  return this.value / factor
+}

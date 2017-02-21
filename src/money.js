@@ -3,7 +3,7 @@ import Intl from 'intl'
 import { isNumber, getValue, isValidCurrencyFractionals } from './helpers/utils'
 import handleMoney from './helpers/handler'
 import { normalize, denormalize } from './helpers/normalization'
-import { sum, subtract } from './helpers/operations'
+import { sum, subtract, multiply, divide } from './helpers/operations'
 import { CURRENCY_USD } from './currency'
 import { DISPLAY_SYMBOL } from './display'
 
@@ -25,7 +25,9 @@ export default class Money {
   * @param {number} [currency=USD] - The currency to use in currency formatting.
   * @param {number} [currencyFractionals=2] - The currency fractionals to use in currency formatting
   */
-  constructor(value, { locale = DEFAULT_LOCALE, currency = DEFAULT_CURRENCY, ...options } = {}) {
+  constructor(value, {
+    locale = DEFAULT_LOCALE, currency = DEFAULT_CURRENCY, normalized = false, ...options
+  } = {}) {
     if (!isNumber(value)) {
       throw new Error('Value should be a number')
     }
@@ -36,7 +38,7 @@ export default class Money {
       minimumFractionDigits: this.currencyFractionals,
       maximumFractionDigits: this.currencyFractionals,
     }
-    this.value = normalize(this.currencyFractionals, value)
+    this.value = normalized ? value : normalize(this.currencyFractionals, value)
     this.locale = locale
     this.currency = currency
   }
@@ -68,14 +70,28 @@ export default class Money {
    * @param {number} value - A value to put on money
    * @return {Money} The money with new value
    */
-  add = value => handleMoney(sum.bind(this, this.currencyFractionals, value), this)
+  add = value => handleMoney(sum.bind(this, value), this)
 
   /**
    * Subtract a value to money
    * @param {number} value - A value to remove from money
    * @return {Money} The money with new value
    */
-  subtract = value => handleMoney(subtract.bind(this, this.currencyFractionals, value), this)
+  subtract = value => handleMoney(subtract.bind(this, value), this)
+
+  /**
+   * Multiply your money by value
+   * @param {number} value - A value to multiply
+   * @return {Money} The money with new value
+   */
+  multiplyBy = value => handleMoney(multiply.bind(this, value), this)
+
+  /**
+   * Divide your money by value
+   * @param {number} value - A value to divide
+   * @return {Money} The money with new value
+   */
+  divideBy = value => handleMoney(divide.bind(this, value), this)
 
   /**
    * Get current value
