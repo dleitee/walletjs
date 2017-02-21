@@ -11,6 +11,3 @@ export const getValue = (value, defaultValue) => {
 
   return value
 }
-
-export const isNumber = value =>
-  Object.prototype.toString.call(value) === '[object Number]' && !isNaN(value)

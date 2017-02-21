@@ -1,3 +1,5 @@
+import Big from 'big.js'
+
 const fraction = (currencyFractionals) => {
   if (currencyFractionals === 0) {
     return 1
@@ -6,6 +8,6 @@ const fraction = (currencyFractionals) => {
 }
 
 export const normalize = (currencyFractionals, value) =>
-  Math.round(value * fraction(currencyFractionals))
+  Big(value).times(fraction(currencyFractionals))
 
-export const denormalize = (currencyFractionals, value) => (value / fraction(currencyFractionals))
+export const denormalize = (currencyFractionals, value) => value.div(fraction(currencyFractionals))

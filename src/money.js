@@ -1,6 +1,6 @@
 import Intl from 'intl'
 
-import { isNumber, getValue, isValidCurrencyFractionals } from './helpers/utils'
+import { getValue, isValidCurrencyFractionals } from './helpers/utils'
 import handleMoney from './helpers/handler'
 import { normalize, denormalize } from './helpers/normalization'
 import { sum, subtract, multiply, divide } from './helpers/operations'
@@ -28,10 +28,6 @@ export default class Money {
   constructor(value, {
     locale = DEFAULT_LOCALE, currency = DEFAULT_CURRENCY, normalized = false, ...options
   } = {}) {
-    if (!isNumber(value)) {
-      throw new Error('Value should be a number')
-    }
-
     this.currencyFractionals = getValue(options.currencyFractionals, DEFAULT_CURRENCY_FRACTIONALS)
     isValidCurrencyFractionals(this.currencyFractionals)
     this.DEFAULT_INTL_OPTIONS = {
@@ -60,10 +56,7 @@ export default class Money {
   * @param {number} [currency=USD] - The currency to use in currency formatting.
   * @return {Money} The money with value
   */
-  static fromString = (string = '0', { ...options } = {}) => {
-    const value = Number.parseFloat(string)
-    return new Money(value, options)
-  }
+  static fromString = (string = '0', { ...options } = {}) => new Money(string, options)
 
   /**
    * Adds a value to money

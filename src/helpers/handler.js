@@ -1,9 +1,9 @@
 import { Money } from '../'
 
-export default (handler, wallet) =>
+export default (handler, money) =>
   new Money(handler(), {
-    locale: wallet.locale,
-    currency: wallet.currency,
-    currencyFractionals: wallet.currencyFractionals,
+    locale: money.locale,
+    currency: money.currency,
+    currencyFractionals: money.currencyFractionals,
     normalized: true,
   })
