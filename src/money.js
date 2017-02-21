@@ -93,6 +93,12 @@ export default class Money {
   getValue = () => denormalize(this.currencyFractionals, this.value)
 
   /**
+   * Get money locale
+   * @return {string}
+   */
+  getLocale = () => this.locale
+
+  /**
   * Return a formatted currency of Money
   * @param {number} [currencyDisplay=symbol] - How to display the currency in currency formatting.
   * @return {string} currency number of money
