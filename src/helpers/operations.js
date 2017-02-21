@@ -1,9 +1,17 @@
 import { normalize } from './normalization'
 
-export const sum = (currencyFractionals, newValue, oldValue) =>
-  normalize(currencyFractionals, newValue) + oldValue
+export function sum(newValue) {
+  return normalize(this.currencyFractionals, newValue) + this.value
+}
 
-export const subtract = (currencyFractionals, newValue, oldValue) =>
-  oldValue - normalize(currencyFractionals, newValue)
+export function subtract(newValue) {
+  return this.value - normalize(this.currencyFractionals, newValue)
+}
 
-export const multiply = (currencyFractionals, factor, value) => value * factor
+export function multiply(factor) {
+  return this.value * factor
+}
+
+export function divide(factor) {
+  return this.value / factor
+}

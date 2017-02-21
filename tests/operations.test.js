@@ -76,3 +76,24 @@ test('[multiply] with biggest values', () => {
   expect(amount.multiplyBy(10).toString()).toBe('99,999,999,999,999.90')
   expect(amount.getValue()).toBe(initialValue)
 })
+
+test('[divide] with real values', () => {
+  const initialValue = 2.02
+  const amount = Money.init(initialValue, { currencyFractionals: 2 })
+  expect(amount.divideBy(2).toString()).toBe('1.01')
+  expect(amount.getValue()).toBe(initialValue)
+})
+
+test('[divide] with smallest values', () => {
+  const initialValue = 200.000000000002
+  const amount = Money.init(initialValue, { currencyFractionals: 12 })
+  expect(amount.divideBy(2).toString()).toBe('100.000000000001')
+  expect(amount.getValue()).toBe(initialValue)
+})
+
+test('[divide] with biggest values', () => {
+  const initialValue = 999999999999999.00
+  const amount = Money.init(initialValue)
+  expect(amount.divideBy(10).toString()).toBe('99,999,999,999,999.90')
+  expect(amount.getValue()).toBe(initialValue)
+})
