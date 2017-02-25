@@ -1,6 +1,6 @@
 {
   "name": "walletjs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Now you can handle money without headaches!",
   "main": "lib/index.js",
   "scripts": {
