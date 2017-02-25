@@ -10,6 +10,14 @@
     "prepublish": "babel src --out-dir lib",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dleitee/walletjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dleitee/walletjs/issues"
+  },
+  "homepage": "https://github.com/dleitee/walletjs#readme",
   "browser": {
     "Intl": "./src/helpers/intil.js"
   },
