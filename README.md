@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/dleitee/walletjs.svg?branch=master)](https://travis-ci.org/dleitee/walletjs)
 [![Coverage Status](https://coveralls.io/repos/github/dleitee/walletjs/badge.svg?branch=master)](https://coveralls.io/github/dleitee/walletjs?branch=master)
-[![Code Climate](https://codeclimate.com/github/dleitee/walletjs/badges/gpa.svg)](https://codeclimate.com/github/dleitee/walletjs)
+[![Code Climate](https://codeclimate.com/github/dleitee/walletjs/badges/gpa.svg)](https://codeclimate.com/github/dleitee/walletjs) [![Greenkeeper badge](https://badges.greenkeeper.io/dleitee/walletjs.svg)](https://greenkeeper.io/)
 
 **IMPORTANT:** We use [`big.js`](https://github.com/MikeMcl/big.js/) to handle huge numbers.
 
